@@ -1,0 +1,62 @@
+
+import axios from "axios";
+const BASE_URL = "http://localhost:4000/api/products";
+
+export const getAllProducts = async () => {
+  const res = await axios.get(BASE_URL);
+  return res.data;
+};
+export const getProductById = async (id) => {
+  const response = await fetch(`http://localhost:4000/api/products/${id}`);
+  const data = await response.json();
+  return data;
+};
+
+export async function addProduct(productData) {
+  const dataToSend = {
+    ...productData,
+    //id: Number(productData.id),
+    price: Number(productData.price),
+    quantity: Number(productData.quantity),
+  };
+
+  console.log("Sending product data:", dataToSend);
+
+  const response = await fetch(BASE_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(dataToSend),
+  });
+
+  if (!response.ok) {
+    throw new Error("שליחת המוצר נכשלה");
+  }
+
+  return await response.json();
+}
+
+
+export const deleteProduct = async (id) => {
+  const res = await axios.delete(`${BASE_URL}/${id}`);
+  return res.data;
+};
+export const updateProduct = async (id, productData) => {
+  const dataToSend = {
+    ...productData,
+    price: Number(productData.price),
+    quantity: Number(productData.quantity),
+  };
+  const res = await axios.put(`${BASE_URL}/${id}`, dataToSend);
+  return res.data;
+};
+export const updateQuantity = async (id, quantity) => {
+  try {
+    await axios.put(`${BASE_URL}/${id}/quantity`, { quantity });
+  } catch (err) {
+    console.error("שגיאה בעדכון מלאי:", err);
+    throw err;  // להעביר את השגיאה למי שקורא
+  }
+};
+

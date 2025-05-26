@@ -1,0 +1,131 @@
+.cart-container {
+  max-width: 800px;
+  margin: 195px auto 40px auto; /* מרווח עליון מהניווט */
+  background: #fffefc;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  font-family: 'Heebo', sans-serif;
+  direction: rtl;
+}
+
+.cart-title {
+  font-size: 2rem;
+  color: #b28f67;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.empty-cart {
+  text-align: center;
+  color: #888888;
+  font-size: 1.2rem;
+}
+
+.cart-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #faf6f1;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  transition: background-color 0.3s;
+}
+
+.cart-item:hover {
+  background-color: #f3eee9;
+}
+
+.item-info {
+  flex: 1;
+}
+
+.item-name {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.item-price, .item-total {
+  display: block;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.item-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.cart-btn {
+  padding: 6px 12px;
+  background-color: #e4c7a1;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cart-btn:hover {
+  background-color: #d5a774;
+}
+
+.cart-remove {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: #b53a3a;
+  cursor: pointer;
+}
+
+.cart-summary {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1.1rem;
+}
+
+.cart-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.clear-btn, .order-btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.clear-btn {
+  background-color: #ccc;
+  color: #333;
+}
+
+.clear-btn:hover {
+  background-color: #bbb;
+}
+
+.order-btn {
+  background-color: #b28f67;
+  color: white;
+}
+
+.order-btn:hover {
+  background-color: #9d7850;
+}

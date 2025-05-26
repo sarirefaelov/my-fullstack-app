@@ -1,0 +1,61 @@
+/* שינוי כיתוב שם הקטגוריה: יותר גדול וכבד */
+.category-title {
+  font-size: 3rem !important; /* הגדלתי מ-3rem ל-3.5rem */
+  font-weight: 1000; /* כבד יותר */
+  text-align: center;
+  margin-bottom: 2rem;
+  background: linear-gradient(
+    90deg,
+    #5c3210,
+    #a65b2b,
+    #e9953f,
+    #f1c933,
+    #1e5677,
+    #8b2c2c
+  );
+  
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  background-size: 500%;
+  background-position: left;
+}
+
+/* ריספונסיביות מותאמת */
+@media (max-width: 768px) {
+  .category-title {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .category-title {
+    font-size: 2rem;
+  }
+}
+
+/* סגנון קטן ומרוכז לסינון */
+.filter-paper {
+  padding: 1rem !important; /* הקטנה מ-2rem ל-1rem */
+  margin-bottom: 1.5rem !important;
+  background-color: #f9f9f9 !important;
+}
+
+.filter-label {
+  font-size: 0.9rem; /* טקסט קטן יותר */
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+/* הקטנת השדות */
+.MuiTextField-root {
+  font-size: 0.9rem;
+}
+
+/* הקטנת המרווח בין השדות */
+.grid-filter-item {
+  padding: 0 0.3rem !important;
+}
+
+
