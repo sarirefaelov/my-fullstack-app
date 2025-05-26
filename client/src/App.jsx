@@ -22,7 +22,7 @@ import Botanic from './Components/screens/Categories/Botanic.jsx';
 import Abstract from './Components/screens/Categories/Abstract.jsx';
 
 // הזמנות ומוצרים
-import Cart from './Components/Order/cart.jsx';
+import Cart from './Components/Order/Cart.jsx';
 import Order from './Components/Order/OrderForm.jsx';
 import ProductDetails from './Components/Product/ProductDetails.jsx';
 import OrdesHistory from './Components/Order/OrdesHistory.jsx';
