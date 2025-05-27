@@ -1,13 +1,15 @@
 
 import axios from "axios";
-const BASE_URL = "http://localhost:4000/api/products";
+// const BASE_URL = "http://localhost:4000/api/products";
+const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:4000/api";
+const PRODUCTS_URL = `${BASE_URL}/products`;
 
 export const getAllProducts = async () => {
   const res = await axios.get(BASE_URL);
   return res.data;
 };
 export const getProductById = async (id) => {
-  const response = await fetch(`http://localhost:4000/api/products/${id}`);
+  const response = await fetch(`${PRODUCTS_URL}/${id}`);
   const data = await response.json();
   return data;
 };

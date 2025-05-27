@@ -1,5 +1,6 @@
 //src/features/order/orderAPI.jsx
-const BASE_URL = "http://localhost:4000/api/orders";
+// const BASE_URL = "http://localhost:4000/api/orders";
+const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:4000/api";
 
 export async function createOrder(orderData) {
   const dataToSend = {

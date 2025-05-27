@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { loginSuccess } from '../../../features/user/userSlice';
 import axios from 'axios';
+const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:4000/api";
 
 const RegisterForm = () => {
   const [openSnackbar, setOpenSnackbar] = useState(false);
@@ -26,7 +27,7 @@ const RegisterForm = () => {
     }),
     onSubmit: async (values) => {
       try {
-        const response = await axios.post('http://localhost:4000/api/users/register', values);
+        const response = await axios.post(`${BASE_URL}/users/register`, values);
 
         dispatch(loginSuccess({ user: response.data.user, role: "user" }));
         setMessage('Registration successful! Redirecting...');
