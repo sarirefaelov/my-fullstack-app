@@ -31,6 +31,13 @@ app.use("/api/users", user);     // משתמשים
 app.use("/api/products", product); // מוצרים
 app.use("/api/orders", order);     // הזמנות
 
-app.listen(4000, () => {
-  console.log("Server listening on port 4000");
+// app.listen(4000, () => {
+//   console.log("Server listening on port 4000");
+// });
+
+require('dotenv').config();
+
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
 });
