@@ -1,11 +1,16 @@
 
 import axios from "axios";
-// const BASE_URL = "http://localhost:4000/api/products";
+// const BASE_URL = "http://localhost:4000/api";
 const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:4000/api";
 const PRODUCTS_URL = `${BASE_URL}/products`;
 
+console.log("VITE_API_URL:", import.meta.env.VITE_API_URL);
+console.log("Using BASE_URL:", BASE_URL);
+
+
+
 export const getAllProducts = async () => {
-  const res = await axios.get(BASE_URL);
+  const res = await axios.get(PRODUCTS_URL);
   return res.data;
 };
 export const getProductById = async (id) => {
@@ -17,14 +22,13 @@ export const getProductById = async (id) => {
 export async function addProduct(productData) {
   const dataToSend = {
     ...productData,
-    //id: Number(productData.id),
     price: Number(productData.price),
     quantity: Number(productData.quantity),
   };
 
   console.log("Sending product data:", dataToSend);
 
-  const response = await fetch(BASE_URL, {
+  const response = await fetch(PRODUCTS_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -41,7 +45,7 @@ export async function addProduct(productData) {
 
 
 export const deleteProduct = async (id) => {
-  const res = await axios.delete(`${BASE_URL}/${id}`);
+  const res = await axios.delete(`${PRODUCTS_URL}/${id}`);
   return res.data;
 };
 export const updateProduct = async (id, productData) => {
@@ -50,12 +54,12 @@ export const updateProduct = async (id, productData) => {
     price: Number(productData.price),
     quantity: Number(productData.quantity),
   };
-  const res = await axios.put(`${BASE_URL}/${id}`, dataToSend);
+  const res = await axios.put(`${PRODUCTS_URL}/${id}`, dataToSend);
   return res.data;
 };
 export const updateQuantity = async (id, quantity) => {
   try {
-    await axios.put(`${BASE_URL}/${id}/quantity`, { quantity });
+    await axios.put(`${PRODUCTS_URL}/${id}/quantity`, { quantity });
   } catch (err) {
     console.error("שגיאה בעדכון מלאי:", err);
     throw err;  // להעביר את השגיאה למי שקורא
