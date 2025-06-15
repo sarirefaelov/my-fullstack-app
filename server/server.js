@@ -85,7 +85,7 @@ app.get('*', (req, res) => {
 
 require('dotenv').config();
 
-const PORT = process.env.PORT || 10000; // התאם לפורט ש-Render השתמש בו
+const PORT = process.env.PORT || 4000; // התאם לפורט ש-Render השתמש בו
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
