@@ -41,7 +41,9 @@
 
 
 
-const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:4000/api";
+// const BASE_URL = import.meta.env.VITE_API_URL;
+const BASE_URL = "https://viewart.onrender.com/api";
+
 const ORDERS_PATH = "orders";
 
 export async function createOrder(orderData) {

@@ -1,8 +1,11 @@
 
 import axios from "axios";
-const BASE_URL = import.meta.env.VITE_API_URL;
+// const BASE_URL = import.meta.env.VITE_API_URL;
+const BASE_URL = "https://viewart.onrender.com/api";
+
 const PRODUCTS_URL = `${BASE_URL}/products`;
 
+console.log("API base URL:", BASE_URL);
 
 export const getAllProducts = async () => {
   const res = await axios.get(PRODUCTS_URL);

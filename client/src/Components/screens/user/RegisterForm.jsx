@@ -6,7 +6,8 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { loginSuccess } from '../../../features/user/userSlice';
 import axios from 'axios';
-const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:4000/api";
+// const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:4000/api";
+const BASE_URL = "https://viewart.onrender.com/api";
 
 const RegisterForm = () => {
   const [openSnackbar, setOpenSnackbar] = useState(false);
