@@ -92,13 +92,13 @@
 
 
 
-
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const user = require('./router/user');
 const product = require('./router/product');
 const order = require('./router/order');
+require('dotenv').config();
 
 const app = express();
 
@@ -118,19 +118,26 @@ app.use(cors({
 
 app.use(express.json());
 
+// משרת קבצים סטטיים מהתיקייה public
 app.use(express.static(path.join(__dirname, 'public')));
 
+// רואטרים של ה-API
 app.use("/api/users", user);
 app.use("/api/products", product);
 app.use("/api/orders", order);
 
-// אם האפליקציה שלך משתמשת ב-React Router, כדאי להחזיר את ה-index.html לכל נתיב שלא מתאים ל-API
+// כל נתיב אחר מחזיר את index.html (כדי ש-React יתמודד עם הנתיב)
 // app.get('*', (req, res) => {
 //   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 // });
 
-require('dotenv').config();
 
+app.get(/^\/(?!api).*/, (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+
+// האזנה לשרת
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
